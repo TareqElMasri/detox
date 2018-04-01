@@ -2,7 +2,7 @@ export const detox: Detox.Detox;
 export const device: Detox.Device;
 export const element: Detox.Element;
 export const waitFor: Detox.WaitFor;
-export const expect: Detox.Expect;
+export const expect: Detox.Expect<any>;
 export const by: Detox.Matchers;
 
 declare namespace Detox {
