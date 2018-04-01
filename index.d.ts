@@ -2,7 +2,7 @@ export const detox: Detox.Detox;
 export const device: Detox.Device;
 export const element: Detox.Element;
 export const waitFor: Detox.WaitFor;
-export const expect: Detox.Expect<Detox.DetoxAny>;
+export const expect: Detox.Expect<Detox.Expect<any>>;
 export const by: Detox.Matchers;
 
 declare namespace Detox {
@@ -146,7 +146,7 @@ declare namespace Detox {
         shake(): Promise<void>
     }
 
-    type DetoxAny = Detox.Element & Actions<void> & WaitFor
+    type DetoxAny = Detox.Element & Actions<any> & WaitFor
 
     interface Element {
         (by: Matchers): DetoxAny;
@@ -206,7 +206,7 @@ declare namespace Detox {
         traits(traits: string[]): Matchers;
     }
     interface Expect<R> {
-        (element: Detox.Element): Promise<R>;
+        (element: Detox.Element): Expect<any>;
         /**
          * Expect the view to be at least 75% visible.
          * @example await expect(element(by.id('UniqueId204'))).toBeVisible();
